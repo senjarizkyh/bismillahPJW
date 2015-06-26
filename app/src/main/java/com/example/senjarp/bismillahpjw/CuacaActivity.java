@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import data.Channel;
 import service.YahooWeatherService;
@@ -35,11 +36,14 @@ public class CuacaActivity extends ActionBarActivity {
         service.refreshWeather("Jakarta, Indonesia");
     }
 
-    public void ServiceSuccess (Channel channel)
-    {
+    @Override
+    public void ServiceSuccess (Channel channel) {
 
     }
 
-
+    @Override
+    public void serviceFailure(Exception exception) {
+        Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
+    }
 
 }
