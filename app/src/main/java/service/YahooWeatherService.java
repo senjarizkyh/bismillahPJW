@@ -1,8 +1,10 @@
-package com.example.senjarp.bismillahpjw;
+package service;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
+
+import com.example.senjarp.bismillahpjw.CuacaActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -21,25 +23,23 @@ import java.util.Date;
 import java.util.Locale;
 
 import data.Channel;
-import service.WeatherServiceCallback;
 
 /**
  * Created by senjaRP on 6/26/2015.
  */
-public class YahooWheatherService {
+public class YahooWeatherService {
     private WeatherServiceCallback callback;
     private Context context;
     private Exception error;
 
     private final String CACHED_WEATHER_FILE = "weather.data";
 
-    public YahooWheatherService(WeatherServiceCallback callback, Context context) {
+    public YahooWeatherService(WeatherServiceCallback callback, Context context) {
         this.callback = callback;
         this.context = context;
     }
 
-    public YahooWheatherService(CuacaActivity cuacaActivity) {
-
+    public YahooWeatherService(CuacaActivity cuacaActivity) {
     }
 
     public void refreshWeather(String location) {
