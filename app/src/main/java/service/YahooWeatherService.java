@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 
+import com.example.senjarp.bismillahpjw.CuacaActivity;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,7 +34,7 @@ public class YahooWeatherService {
 
     private final String CACHED_WEATHER_FILE = "weather.data";
 
-    public YahooWeatherService(WeatherServiceCallback callback, Context context) {
+    public YahooWeatherService(CuacaActivity cuacaActivity, Context applicationContext) {
         this.callback = callback;
         this.context = context;
     }

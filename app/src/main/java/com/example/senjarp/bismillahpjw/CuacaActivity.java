@@ -1,19 +1,15 @@
 package com.example.senjarp.bismillahpjw;
 
-import android.media.Image;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import data.Channel;
+import service.WeatherServiceCallback;
 import service.YahooWeatherService;
-import android.app.ProgressDialog;
 
 
 public class CuacaActivity extends ActionBarActivity  implements WeatherServiceCallback {
@@ -23,7 +19,7 @@ public class CuacaActivity extends ActionBarActivity  implements WeatherServiceC
     private TextView conditionTextview;
     private TextView locationTextView;
 
-    private YahooWheatherService service;
+    private YahooWeatherService service;
     private ProgressDialog dialog;
 
     @Override
@@ -32,11 +28,11 @@ public class CuacaActivity extends ActionBarActivity  implements WeatherServiceC
         setContentView(R.layout.activity_cuaca);
 
         weatherIconImageView = (ImageView) findViewById(R.id.weatherIconImageView);
-        temperaturetextView = (TextView) findViewById(R.id.temperaturetextView);
+        temperaturetextView = (TextView) findViewById(R.id.temperatureTextView);
         conditionTextview = (TextView) findViewById(R.id.conditionTextView);
         locationTextView = (TextView) findViewById(R.id.locationTextView);
 
-        service = new YahooWheaterService(this);
+        service = new YahooWeatherService(this, getApplicationContext());
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
         dialog.show();
@@ -50,9 +46,9 @@ public class CuacaActivity extends ActionBarActivity  implements WeatherServiceC
     }
 
     @Override
-    public void
-    servicefailure(Exception exception) {
+    public void serviceFailure(Exception exception) {
         dialog.hide();
         Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
     }
+
 }
