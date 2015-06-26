@@ -4,8 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
 
-import com.example.senjarp.bismillahpjw.CuacaActivity;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,9 +37,6 @@ public class YahooWeatherService {
         this.context = context;
     }
 
-    public YahooWeatherService(CuacaActivity cuacaActivity) {
-    }
-
     public void refreshWeather(String location) {
 
         new AsyncTask<String, Void, Channel>() {
@@ -58,7 +53,7 @@ public class YahooWeatherService {
                     channel = new Channel();
                 }
 
-                String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\")", location);
+                String YQL = String.format("select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%s\") and u='c'", location);
 
                 String endpoint = String.format("https://query.yahooapis.com/v1/public/yql?q=%s&format=json", Uri.encode(YQL));
 
