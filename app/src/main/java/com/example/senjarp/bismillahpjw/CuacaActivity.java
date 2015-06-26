@@ -34,7 +34,7 @@ public class CuacaActivity extends ActionBarActivity  implements WeatherServiceC
         conditionTextview = (TextView) findViewById(R.id.conditionTextView);
         locationTextView = (TextView) findViewById(R.id.locationTextView);
 
-        service = new YahooWeatherService(this);
+        service = new YahooWeatherService(this, getApplicationContext());
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
         dialog.show();
