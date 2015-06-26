@@ -39,6 +39,9 @@ public class YahooWeatherService {
         this.context = context;
     }
 
+    public YahooWeatherService(CuacaActivity cuacaActivity) {
+    }
+
     public void refreshWeather(String location) {
 
         new AsyncTask<String, Void, Channel>() {
