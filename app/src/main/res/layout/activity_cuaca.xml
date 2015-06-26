@@ -29,6 +29,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/condition"
         android:id="@+id/conditionTextView"
+        android:layout_parent="@+id/temperatureTextView"
         android:layout_below="@+id/weatherIconImageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />
